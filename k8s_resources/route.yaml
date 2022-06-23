@@ -1,0 +1,16 @@
+- name: Create route
+  k8s:
+    definition:
+      apiVersion: route.openshift.io/v1
+      kind: Route
+      metadata:
+        name: <REPLACE-ROUTE-NAME>
+        labels: 
+          app: <LABEL-NAME>
+      spec:
+        path: /
+        to:
+          kind: Service
+          name: <service name>
+        port:
+          targetPort: <target port>

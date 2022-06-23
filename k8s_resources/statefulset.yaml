@@ -1,0 +1,32 @@
+- name: Create StatefulSet
+  k8s:
+    definition:
+      apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: <REPLACE-STATEFULSET-NAME>
+      spec:
+        serviceName: <SERVICE-NAME>
+        replicas: <REPLICAS>
+        selector:
+          matchLabels:
+            app: <LABEL-NAME>
+        template:
+          metadata:
+            labels: 
+              app: <LABEL-NAME>
+          spec:
+            containers: 
+              - name: app
+                image: <IMAGE>
+                ports:
+                - containerPort: <CONTAINER-PORT>
+#        volumeClaimTemplates:
+#          - metadata:
+#              name: <claim name>
+#            spec:
+#              accessModes: []
+#              storageClassName:
+#              resources:
+#                requests:
+#                  storage:

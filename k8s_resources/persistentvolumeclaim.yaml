@@ -1,0 +1,15 @@
+- name: Create PersistentVolumeClaim
+  k8s:
+    definition:
+      kind: PersistentVolumeClaim
+      apiVersion: v1
+      metadata:
+        name: <REPLACE-PVC-NAME>
+        labels: 
+          app: <LABEL-NAME>
+      spec:
+        accessModes: []
+        resources:
+          requests:
+            storage: <storage>
+        storageClassName: <storageClass>

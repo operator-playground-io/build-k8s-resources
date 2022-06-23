@@ -1,0 +1,23 @@
+- name: Create deployment
+  k8s:
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: <REPLACE-DEPLOYMENT-NAME>
+      spec:
+        selector:
+          matchLabels: 
+            app: <LABEL-NAME>
+        replicas: <REPLICAS>
+        template:
+          metadata:
+            labels: 
+              app: <LABEL-NAME>
+          spec:
+            containers: 
+              - name: app
+                image: <IMAGE>
+                ports:
+                - containerPort: <CONTAINER-PORT>
+            volumes: []
