@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: <REPLACE-PV-NAME>
+  labels:
+    type: local
+spec:
+  storageClassName: <STORAGE-CLASS>
+  capacity:
+    storage: <SIZE>
+  accessModes:
+    - <ACCESS-MODES>
+  hostPath:
+    path: "/mnt/data"

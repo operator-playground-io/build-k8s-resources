@@ -1,12 +1,15 @@
-- name: Create service
-  k8s:
-    definition:
-      apiVersion: v1
-      kind: Service
-      metadata:
-        name: <REPLACE-SERVICE-NAME>
-        labels: 
-          app: <LABEL-NAME>
-      spec:
-        selector: {}
-        ports: []
+apiVersion: v1
+kind: Service
+metadata:
+  name: <REPLACE-SERVICE-NAME>
+  labels: 
+    app: <LABEL-NAME>
+spec:
+  type: <SERVICE-TYPE>
+  selector:
+    app: <LABEL-NAME-OF-WORKLOAD>
+  ports: 
+    - name: service-port
+      protocol: TCP
+      port: <EXPOSED-PORT>
+      targetPort: <APPLICATION-PORT>

@@ -1,11 +1,8 @@
-- name: Create ConfigMap
-  k8s:
-    definition:
-      apiVersion: v1
-      kind: ConfigMap
-      metadata:
-        name: <REPLACE-CONFIGMAP-NAME>
-        labels: 
-          app: <LABEL-NAME>
-      data:
-        <KEY>: <VALUE>
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: <REPLACE-CONFIGMAP-NAME>
+  labels: 
+    app: <LABEL-NAME>
+data:
+  <KEY>: <VALUE>
